@@ -7,13 +7,9 @@
 {% endblock page-navigation %}
 
 {% block page-content %}
-    <div id="wrapper">
-        <h1>Welcome to Bottle Battle</h1>
-        {% if user.is_authenticated %}
-            <a id="feed_button" class="btn btn-large btn-primary" href="{% url 'app:home' %}">Continue to App</a>
-        {% else %}
-            <a id="log_in_button" class="btn btn-large btn-primary" href="{% url 'log_in' %}">Log in</a>
-            <a id="sign_up_button" class="btn btn-large btn-primary" href="{% url 'sign_up' %}">Sign up</a>
-        {% endif %}
+    <div class="center-middle">
+        <h1>Bottle Battle</h1>
+        <a id="host_button" class="btn btn-large btn-primary" href="{% url 'app:new_event' %}">Host event</a>
+        <a id="join_button" class="btn btn-large btn-primary" href="{% url 'app:event' %}">Join event</a>
     </div>
 {% endblock page-content %}

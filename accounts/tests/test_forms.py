@@ -15,7 +15,7 @@ User = get_user_model()
 
 class LogInFormTest(TestCase):
     def setUp(self):
-        self.email = 'john.carney@carneylabs.com'
+        self.email = 'parentj@eab.com'
         self.password = 'password1'
         self.user = User.objects.create_user(
             username=self.email, email=self.email, password=self.password, last_login=now()
@@ -55,7 +55,7 @@ class SignUpFormTest(TestCase):
     def setUp(self):
         self.first_name = 'John'
         self.last_name = 'Parent'
-        self.email = 'john.carney@carneylabs.com'
+        self.email = 'parentj@eab.com'
         self.password = 'password1'
         self.request = HttpRequest()
         self.request.user = AnonymousUser()
