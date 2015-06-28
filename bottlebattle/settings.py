@@ -40,16 +40,19 @@ DEFAULT_APPS = (
 )
 
 THIRD_PARTY_APPS = (
-
+    'localflavor',
 )
 
 LOCAL_APPS = (
     'bottlebattle',
+    'accounts',
     'app',
     'web',
 )
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+
+AUTH_USER_MODEL = 'accounts.User'
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -112,6 +115,33 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../static'))
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'bottlebattle', 'static'),
+)
+
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'bottlebattle', 'templates'),
+)
+
+from django.contrib.messages import constants as message_constants
+
+# Changing message tags to conform with Bootstrap 'alert' component class names...
+MESSAGE_TAGS = {
+    message_constants.DEBUG: 'debug',
+    message_constants.INFO: 'info',
+    message_constants.SUCCESS: 'success',
+    message_constants.WARNING: 'warning',
+    message_constants.ERROR: 'danger'
+}
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MEDIA_URL = '/media/'
+
+DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 
 try:
     from local_settings import *

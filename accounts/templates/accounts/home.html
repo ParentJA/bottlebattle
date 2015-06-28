@@ -1,6 +1,20 @@
 {% extends 'base.html' %}
 
-{% block page-styles %}{% endblock page-styles %}
+{% block page-styles %}
+    <style>
+        #wrapper {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 120px;
+            margin: auto auto;
+            position: absolute;
+            text-align: center;
+        }
+    </style>
+{% endblock page-styles %}
 
 {% block page-navigation %}
     {% include 'snippets/navigation.html' with active='none' %}
