@@ -7,7 +7,7 @@ from django.db import models
 
 class Event(models.Model):
     title = models.CharField(max_length=250)
-    description = models.TextField()
+    description = models.TextField(null=True, blank=True)
 
     def __unicode__(self):
         return self.title
@@ -50,7 +50,7 @@ class EventProduct(models.Model):
 
 class Response(models.Model):
     best_product = models.ForeignKey(EventProduct)
-    product_list = models.CommaSeparatedIntegerField()
+    product_list = models.CommaSeparatedIntegerField(max_length=250)
 
 
 class EventGuestResponse(models.Model):
