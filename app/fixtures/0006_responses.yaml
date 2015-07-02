@@ -1,0 +1,5 @@
+- model: app.Response
+  pk: 1
+  fields:
+    best_product:
+    product_list: []

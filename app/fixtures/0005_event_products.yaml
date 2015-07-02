@@ -1,0 +1,5 @@
+- model: app.EventProduct
+  pk: 1
+  fields:
+    event: 1
+    product: 1

@@ -1,0 +1,7 @@
+- model: app.Product
+  pk: 1
+  fields:
+    name:
+    style:
+    abv:
+    producer:

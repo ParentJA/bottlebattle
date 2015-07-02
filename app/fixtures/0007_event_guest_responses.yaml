@@ -1,0 +1,5 @@
+- model: app.EventGuestResponse
+  pk: 1
+  fields:
+    event_guest:
+    response:

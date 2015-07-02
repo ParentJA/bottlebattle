@@ -1,0 +1,5 @@
+- model: app.Event
+  pk: 1
+  fields:
+    title: IPA Tasting Party
+    description: We will be tasting and ranking four local IPA beers from the DC metro area.

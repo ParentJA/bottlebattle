@@ -1,0 +1,5 @@
+- model: app.EventGuest
+  pk: 1
+  fields:
+    event: 1
+    user:

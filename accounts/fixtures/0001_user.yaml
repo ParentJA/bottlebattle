@@ -1,4 +1,4 @@
-- model: accounts.user
+- model: accounts.User
   pk: 1
   fields:
     password: pbkdf2_sha256$15000$NWYZLyhiGi98$xHm3zjjTa3lIMmUkSHnubPLcPIspT4MgxgjAzZiK6tM=
