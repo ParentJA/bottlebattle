@@ -1,6 +1,13 @@
 {% extends 'base.html' %}
 
-{% block page-styles %}{% endblock page-styles %}
+{% block page-styles %}
+    <style>
+        body {
+            background: #FFF url("/static/img/wine_bg.jpg") no-repeat center;
+            background-size: cover;
+        }
+    </style>
+{% endblock page-styles %}
 
 {% block page-navigation %}
     {% include 'snippets/navigation.html' with active='none' %}

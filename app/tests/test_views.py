@@ -7,7 +7,8 @@ from mock import Mock, patch
 from django.test import RequestFactory, TestCase
 
 # Local imports...
-from ..views import event_view, home_view, new_event_view
+from ..models import Event
+from ..views import event_view, event_detail_view, event_list_view, home_view, new_event_view
 
 
 class HomeViewTest(TestCase):
@@ -113,3 +114,30 @@ class NewEventViewTest(TestCase):
     #
     #     self.assertTrue(mock_redirect.called)
     #     self.assertEqual(response, mock_redirect.return_value)
+
+
+class EventDetailViewTest(TestCase):
+    def setUp(self):
+        self.event = Event.objects.create(title='Beer Tasting')
+        self.factory = RequestFactory()
+
+    def test_home_view_renders_home_template(self):
+        request = self.factory.get('/app/event/%d/' % (self.event.pk,))
+        request.user = Mock()
+        request.user.return_value.is_authenticated.return_value = True
+
+        with self.assertTemplateUsed(template_name='app/event_detail.html'):
+            event_detail_view(request, event_id=self.event.pk)
+
+
+class EventListViewTest(TestCase):
+    def setUp(self):
+        self.factory = RequestFactory()
+
+    def test_home_view_renders_home_template(self):
+        request = self.factory.get('/app/event/list/')
+        request.user = Mock()
+        request.user.return_value.is_authenticated.return_value = True
+
+        with self.assertTemplateUsed(template_name='app/event_list.html'):
+            event_list_view(request)
